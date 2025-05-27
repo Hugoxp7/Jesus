@@ -4,22 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Por que viver na presença de Jesus</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- Botão de tema -->
+  <!-- Botão de Tema -->
   <button id="theme-toggle">😇</button>
 
   <!-- Tela Inicial com imagem de fundo -->
-  <section id="inicio">
+  <section id="inicio" class="inicio">
     <div class="inicio-content">
+      <h1>Por que viver na presença de Jesus</h1>
       <button id="entrar">Por que ir para Jesus?</button>
     </div>
   </section>
 
-  <!-- Aba principal -->
-  <section id="principal" class="hidden">
+  <!-- Seção Principal oculta até clique -->
+  <section id="principal" class="principal hidden">
     <div class="conteudo">
       <h2>Como se aproximar de Deus</h2>
       <ul>
@@ -48,85 +49,72 @@
         <li>Preenche o vazio da alma</li>
       </ul>
 
-      <div class="btns-voltar-continuar">
-        <button id="voltar1">⬅️ Voltar</button>
-        <button id="continuar1">Continuar ➡️</button>
-      </div>
+      <button id="continuar">Continuar</button>
     </div>
   </section>
 
-  <!-- Aba de Pedido de Oração -->
-  <section id="pedido" class="hidden">
-    <div class="pedido-container">
+  <!-- Segunda aba (Pedido de oração + Estudos) -->
+  <section id="extra" class="extra hidden">
+    <div class="conteudo">
       <h2>Pedido de Oração</h2>
-      <p>Envie seu pedido, vamos orar com fé por você.</p>
-      <textarea id="pedido-text" placeholder="Coloque seu pedido de oração aqui..."></textarea>
-      <button type="submit">Enviar Pedido</button>
+      <form>
+        <label for="pedido">Coloque seu pedido de oração:</label><br>
+        <textarea id="pedido" name="pedido" rows="5" placeholder="Escreva aqui seu pedido..."></textarea>
+        <br><button type="submit">Enviar Pedido</button>
+      </form>
 
       <h2>📖 Estudos Bíblicos</h2>
       <ul>
-        <li>Lição 1: O Plano da Salvação</li>
-        <li>Lição 2: A vida de Jesus</li>
-        <li>Lição 3: O Espírito Santo e Seus Frutos</li>
+        <li><strong>Lição 1:</strong> Quem é Jesus?</li>
+        <li><strong>Lição 2:</strong> O Plano da Salvação</li>
+        <li><strong>Lição 3:</strong> O Espírito Santo e você</li>
       </ul>
 
-      <div class="btns-voltar-continuar">
-        <button id="voltar2">⬅️ Voltar</button>
-      </div>
+      <button id="voltar">Voltar</button>
     </div>
 
     <footer>
-      <div class="footer-info">
-        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil"/>
-        <div>
-          <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
-          <p>Instagram: @hugozxp7</p>
-          <p>WhatsApp: 41 997088269</p>
-        </div>
-      </div>
+      <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
+      <p>Instagram: @hugozxp7</p>
+      <p>WhatsApp: 41 997088269</p>
       <p class="final">Jesus é o suficiente!</p>
     </footer>
   </section>
 
-  <!-- Áudio de fundo (piano instrumental "Yeshua") -->
+  <!-- Música de fundo -->
   <audio autoplay loop>
-    <source src="https://hugozxp-audios.s3.amazonaws.com/yeshua-piano.mp3" type="audio/mpeg">
+    <source src="yeshua-instrumental.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
   </audio>
 
   <script>
-    const btnEntrar = document.getElementById("entrar");
+    const entrar = document.getElementById("entrar");
+    const continuar = document.getElementById("continuar");
+    const voltar = document.getElementById("voltar");
     const inicio = document.getElementById("inicio");
     const principal = document.getElementById("principal");
-    const pedido = document.getElementById("pedido");
-    const continuar1 = document.getElementById("continuar1");
-    const voltar1 = document.getElementById("voltar1");
-    const voltar2 = document.getElementById("voltar2");
-    const toggle = document.getElementById("theme-toggle");
+    const extra = document.getElementById("extra");
+    const themeToggle = document.getElementById("theme-toggle");
 
-    btnEntrar.onclick = () => {
+    entrar.onclick = () => {
       inicio.classList.add("hidden");
       principal.classList.remove("hidden");
     };
 
-    continuar1.onclick = () => {
+    continuar.onclick = () => {
       principal.classList.add("hidden");
-      pedido.classList.remove("hidden");
+      extra.classList.remove("hidden");
     };
 
-    voltar1.onclick = () => {
-      principal.classList.add("hidden");
-      inicio.classList.remove("hidden");
-    };
-
-    voltar2.onclick = () => {
-      pedido.classList.add("hidden");
+    voltar.onclick = () => {
+      extra.classList.add("hidden");
       principal.classList.remove("hidden");
     };
 
-    toggle.onclick = () => {
+    themeToggle.onclick = () => {
       document.body.classList.toggle("dark");
     };
   </script>
 </body>
 </html>
+
