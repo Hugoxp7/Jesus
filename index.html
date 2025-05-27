@@ -2,98 +2,147 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Por que viver na presença de Jesus</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <button id="theme-toggle">😇</button>
 
-  <!-- Botão tema -->
-  <button id="theme-toggle" class="theme-toggle">😇</button>
-
-  <!-- Página inicial -->
-  <section id="inicio" class="section inicio">
-    <div class="content">
-      <button id="entrar" class="entrar-btn">Por que ir para Jesus?</button>
-    </div>
-  </section>
-
-  <!-- Página principal -->
-  <section id="principal" class="section principal hidden">
-    <div class="overlay">
-      <h2 class="versiculo">João 19:30</h2>
+  <!-- Aba 1: Início + Conteúdo Principal -->
+  <section id="aba1" class="aba">
+    <div class="inicio-content">
+      <button id="entrar">Por que ir para Jesus?</button>
     </div>
 
-    <div class="mensagem">
-      <h3>Como se aproximar de Deus</h3>
-      <ul>
-        <li>Ore diariamente com sinceridade</li>
-        <li>Leia a Bíblia com fé e atenção</li>
-        <li>Participe de uma comunidade cristã</li>
-        <li>Peça a direção do Espírito Santo</li>
-        <li>Confie em Deus acima de tudo</li>
-      </ul>
-
-      <h3>Versículos & Mensagens</h3>
-      <ul>
-        <li>Salmos 23: "O Senhor é o meu pastor..."</li>
-        <li>João 14:6: "Eu sou o caminho..."</li>
-        <li>Isaías 41:10: "Não temas..."</li>
-        <li>Romanos 8:28: "Tudo coopera..."</li>
-        <li>Filipenses 4:13: "Tudo posso..."</li>
-      </ul>
-
-      <h3>Por que viver na presença de Jesus?</h3>
-      <ul>
-        <li>Ele dá sentido à vida</li>
-        <li>Nos oferece salvação</li>
-        <li>Transforma o coração</li>
-        <li>Nos guia pelo caminho certo</li>
-        <li>Preenche com paz e amor</li>
-      </ul>
-
-      <h3>Quem somos</h3>
-      <p>Filhos de Cristo, unidos para compartilhar o amor de Jesus.</p>
-
-      <h3>Pedido de oração</h3>
-      <p>Envie seu pedido e oraremos por você com fé e carinho.</p>
-
-      <h3 class="convite">
-        Não tem uma igreja para congregar? <br />
-        Venha para a Assembleia de Deus Barreirinha! <br />
-        Mais informações sobre a igreja? Me chama no WhatsApp. <br />
-        <strong>Ungidos por Deus espera por você!</strong>
-      </h3>
-    </div>
-
-    <footer>
-      <p>Feito por Jesus - Usado por Ele para criar o site foi Victor Hugo</p>
-      <div class="contato">
-        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Imagem de perfil" class="perfil"/>
-        <div>
-          <p>Instagram: @hugozxp7</p>
-          <p>WhatsApp: 41 997088269</p>
-        </div>
+    <div class="conteudo-principal hidden">
+      <div class="versiculo-container">
+        <span class="versiculo">João 19:30</span>
       </div>
-      <p class="final">Jesus é o suficiente!</p>
-    </footer>
+
+      <h2>Como se aproximar de Deus</h2>
+      <ul>
+        <li>Ore diariamente com o coração sincero</li>
+        <li>Leia a Bíblia com atenção e fé</li>
+        <li>Participe de uma igreja evangélica</li>
+        <li>Pratique o amor ao próximo</li>
+        <li>Busque o Espírito Santo em oração</li>
+      </ul>
+
+      <h2>Versículos & Mensagens</h2>
+      <ul>
+        <li>"O Senhor é o meu pastor..." – Salmos 23</li>
+        <li>"Eu sou o caminho, a verdade e a vida" – João 14:6</li>
+        <li>"Não temas, porque eu sou contigo" – Isaías 41:10</li>
+        <li>"Tudo coopera para o bem" – Romanos 8:28</li>
+        <li>"Tudo posso naquele que me fortalece" – Filipenses 4:13</li>
+      </ul>
+
+      <h2>Por que viver na presença de Jesus?</h2>
+      <ul>
+        <li>Ele transforma corações</li>
+        <li>Nos guia e protege</li>
+        <li>Nos traz paz e amor</li>
+        <li>Oferece salvação eterna</li>
+        <li>Preenche o vazio da alma</li>
+      </ul>
+
+      <button id="btn-aba2" class="btn-continuar">Continuar</button>
+    </div>
   </section>
 
-<script>
-  const btn = document.getElementById("entrar");
-  const inicio = document.getElementById("inicio");
-  const principal = document.getElementById("principal");
-  const toggle = document.getElementById("theme-toggle");
+  <!-- Aba 2: Pedido de Oração -->
+  <section id="aba2" class="aba hidden">
+    <h2>Pedido de Oração</h2>
+    <p>Envie seu pedido, vamos orar com fé por você.</p>
 
-  btn.onclick = () => {
-    inicio.classList.add("hidden");
-    principal.classList.remove("hidden");
-  };
+    <form id="form-oracao">
+      <label for="pedido">Coloque seu pedido de oração:</label><br />
+      <textarea id="pedido" name="pedido" rows="5" required placeholder="Digite aqui seu pedido..."></textarea><br />
+      <button type="submit">Enviar Pedido</button>
+    </form>
 
-  toggle.onclick = () => {
-    document.body.classList.toggle("dark");
-  };
-</script>
+    <div class="convite">
+      <p>
+        Não tem uma igreja para congregar?<br />
+        Venha para a <strong>Assembleia de Deus Barreirinha</strong>!<br />
+        Mais informações sobre a igreja? Me chama no WhatsApp.<br />
+        <strong>Ungidos por Deus espera por você!</strong>
+      </p>
+    </div>
 
+    <button id="btn-aba3" class="btn-continuar">Próxima: Estudos Bíblicos 📖</button>
+  </section>
+
+  <!-- Aba 3: Estudos Bíblicos -->
+  <section id="aba3" class="aba hidden">
+    <h2>📖 Estudos Bíblicos</h2>
+    <ul>
+      <li>Lição 1: Entendendo o Amor de Deus</li>
+      <li>Lição 2: A importância da oração na vida cristã</li>
+      <li>Lição 3: Como aplicar a palavra de Deus no dia a dia</li>
+    </ul>
+  </section>
+
+  <!-- Rodapé comum -->
+  <footer>
+    <div class="footer-info">
+      <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil" />
+      <div>
+        <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
+        <p>Instagram: @hugozxp7</p>
+        <p>WhatsApp: 41 997088269</p>
+      </div>
+    </div>
+    <p class="final">Jesus é o suficiente!</p>
+  </footer>
+
+  <script>
+    // Controlar abas
+    const entrarBtn = document.getElementById("entrar");
+    const aba1 = document.getElementById("aba1");
+    const aba2 = document.getElementById("aba2");
+    const aba3 = document.getElementById("aba3");
+    const btnAba2 = document.getElementById("btn-aba2");
+    const btnAba3 = document.getElementById("btn-aba3");
+
+    // Mostrar conteúdo principal da aba1 depois do "entrar"
+    entrarBtn.onclick = () => {
+      entrarBtn.style.display = "none";
+      document.querySelector(".conteudo-principal").classList.remove("hidden");
+    };
+
+    btnAba2.onclick = () => {
+      aba1.classList.add("hidden");
+      aba2.classList.remove("hidden");
+    };
+
+    btnAba3.onclick = () => {
+      aba2.classList.add("hidden");
+      aba3.classList.remove("hidden");
+    };
+
+    // Tema escuro
+    const toggle = document.getElementById("theme-toggle");
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+    };
+
+    // Formulário: só limpa e alerta para simular envio
+    const formOracao = document.getElementById("form-oracao");
+    formOracao.onsubmit = (e) => {
+      e.preventDefault();
+      alert("Pedido de oração enviado com sucesso! Vamos orar por você.");
+      formOracao.reset();
+    };
+
+    // Música de fundo embutida
+    const audio = document.createElement("audio");
+    audio.src = "https://cdn.pixabay.com/download/audio/2023/03/06/audio_3eaf2e2e99.mp3?filename=soft-inspirational-piano-10892.mp3";
+    audio.loop = true;
+    audio.autoplay = true;
+    audio.volume = 0.15;
+    document.body.appendChild(audio);
+  </script>
 </body>
 </html>

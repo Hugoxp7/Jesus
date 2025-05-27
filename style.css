@@ -1,160 +1,251 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  font-family: 'Arial', sans-serif;
 }
 
 body {
-  background: #f8f9fa;
-  color: #111;
-  transition: background 0.4s, color 0.4s;
-}
-
-body.dark {
-  background: #121212;
-  color: #f1f1f1;
-}
-
-.section {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("https://st.depositphotos.com/52441776/56409/i/450/depositphotos_564093166-stock-photo-silhouette-christian-praying-hands-spiritual.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #222;
   min-height: 100vh;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1rem;
+  transition: background-color 0.5s, color 0.5s;
 }
 
-.inicio {
-  background-image: url('https://st.depositphotos.com/52441776/56409/i/450/depositphotos_564093166-stock-photo-silhouette-christian-praying-hands-spiritual.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
+.dark {
+  background: #121212;
+  color: #eee;
 }
 
-.entrar-btn {
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  background-color: rgba(255,255,255,0.8);
+button#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: transparent;
   border: none;
-  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  z-index: 100;
+  color: #f0c;
+  transition: color 0.3s;
+}
+button#theme-toggle:hover {
+  color: #ff69b4;
 }
 
-.entrar-btn:hover {
-  background-color: rgba(255,255,255,1);
-  transform: scale(1.05);
+/* Seções (abas) */
+.aba {
+  max-width: 700px;
+  margin: 4rem auto 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.5s ease;
 }
 
-.principal {
-  background-image: url('https://img.elo7.com.br/product/main/487EE8B/letras-luminosas-jesus-a-pilhas-luminaria.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  padding-top: 5rem;
+.dark .aba {
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: 0 0 15px rgba(255, 0, 200, 0.6);
 }
 
 .hidden {
   display: none;
 }
 
-.overlay {
-  position: absolute;
-  top: 20px;
-  left: 0;
-  right: 0;
-  text-align: center;
+/* Tela Inicial */
+.inicio-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
 }
 
-.versiculo {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  display: inline-block;
+#entrar {
+  font-size: 1.5rem;
   padding: 1rem 2rem;
-  font-size: 2rem;
   border-radius: 12px;
+  border: none;
+  background-color: #800080cc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.mensagem {
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  padding: 2rem;
-  margin-top: 6rem;
-  backdrop-filter: blur(8px);
-  animation: fadeIn 1.2s ease-in-out;
+#entrar:hover {
+  background-color: #a64ca6cc;
 }
 
-.mensagem h3 {
-  margin-top: 1.5rem;
-  color: #222;
+/* Versículo */
+.versiculo-container {
+  text-align: center;
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #800080;
 }
 
-.mensagem ul {
-  padding-left: 1.5rem;
+.dark .versiculo-container {
+  color: #ff69b4;
 }
 
-.mensagem li {
+/* Conteúdo principal */
+h2 {
+  margin: 1.5rem 0 1rem;
+  color: #800080;
+}
+
+.dark h2 {
+  color: #ff69b4;
+}
+
+ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  color: #333;
+}
+
+.dark ul {
+  color: #ddd;
+}
+
+p {
+  margin: 1rem 0;
+  line-height: 1.5;
+  color: #444;
+}
+
+.dark p {
+  color: #ccc;
+}
+
+/* Pedido de oração */
+form label {
+  font-weight: 600;
   margin-bottom: 0.5rem;
+  display: block;
+  color: #800080;
+}
+
+.dark form label {
+  color: #ff69b4;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #800080;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.dark textarea {
+  background-color: #333;
+  border-color: #ff69b4;
+  color: #eee;
+}
+
+button[type="submit"],
+.btn-continuar {
+  background-color: #800080;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+.btn-continuar:hover {
+  background-color: #a64ca6;
 }
 
 .convite {
   margin-top: 2rem;
-  background-color: rgba(255,255,0,0.2);
   padding: 1rem;
+  background-color: #e7d4f0;
   border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
+  color: #4b2078;
+  font-weight: 600;
 }
 
+.dark .convite {
+  background-color: #3a1446;
+  color: #ff69b4;
+}
+
+/* Rodapé */
 footer {
-  margin-top: 3rem;
+  max-width: 700px;
+  margin: 2rem auto 1rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   font-size: 0.9rem;
-  padding-bottom: 2rem;
+  color: #555;
 }
 
-.contato {
+.dark footer {
+  background: rgba(20, 20, 20, 0.85);
+  color: #ddd;
+  box-shadow: 0 0 10px rgba(255, 0, 200, 0.7);
+}
+
+.footer-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.contato img.perfil {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
+.perfil {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  margin-right: 1rem;
-  border: 2px solid #222;
+  object-fit: cover;
 }
 
 .final {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 600;
+  color: #800080;
 }
 
-.theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
+.dark .final {
+  color: #ff69b4;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Responsividade */
+@media (max-width: 600px) {
+  .aba {
+    margin: 2rem 1rem;
+    padding: 1rem;
+  }
+
+  #entrar,
+  button[type="submit"],
+  .btn-continuar {
+    width: 100%;
+    font-size: 1.25rem;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .mensagem {
-    margin
