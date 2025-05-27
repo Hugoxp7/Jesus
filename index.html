@@ -2,26 +2,26 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Por que viver na presença de Jesus</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Música de fundo -->
-  <iframe style="display:none;" src="https://www.youtube.com/embed/8kG-3dHnBkY?autoplay=1&loop=1&playlist=8kG-3dHnBkY"></iframe>
+  <button id="theme-toggle" aria-label="Alternar tema">😇</button>
 
-  <!-- Botão de tema -->
-  <button id="theme-toggle">😇</button>
-
-  <!-- Seção Inicial -->
+  <!-- Tela Inicial -->
   <section id="inicio" class="inicio">
-    <div class="overlay">
-      <button id="entrar" class="botao-central">Por que ir para Jesus?</button>
+    <div class="inicio-content">
+      <button id="entrar">Por que ir para Jesus?</button>
     </div>
   </section>
 
-  <!-- Primeira Aba -->
-  <section id="aba1" class="aba hidden">
+  <!-- Conteúdo Principal -->
+  <section id="principal" class="principal hidden">
+    <div class="versiculo-container">
+      <span class="versiculo">João 19:30</span>
+    </div>
+
     <div class="conteudo">
       <h2>Como se aproximar de Deus</h2>
       <ul>
@@ -50,63 +50,130 @@
         <li>Preenche o vazio da alma</li>
       </ul>
 
-      <button id="continuar">Continuar</button>
-    </div>
-  </section>
-
-  <!-- Segunda Aba -->
-  <section id="aba2" class="aba hidden">
-    <div class="conteudo">
-      <h2>Pedido de Oração</h2>
-      <form>
-        <label for="pedido">Coloque seu pedido de oração:</label>
-        <textarea id="pedido" placeholder="Escreva aqui..."></textarea>
-        <button type="submit">Enviar Pedido</button>
-      </form>
-
-      <h2>📖 Estudos Bíblicos</h2>
-      <ul>
-        <li>1. O Plano da Salvação</li>
-        <li>2. Quem é Jesus Cristo?</li>
-        <li>3. O Fruto do Espírito</li>
-      </ul>
-
-      <button id="voltar">Voltar</button>
+      <div class="botoes-aba">
+        <button id="btn-continuar" class="btn-pequeno">Continuar →</button>
+      </div>
     </div>
 
     <footer>
-      <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
-      <p>Instagram: @hugozxp7 | WhatsApp: 41 997088269</p>
+      <div class="footer-info">
+        <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
+        <p>Instagram: @hugozxp7</p>
+        <p>WhatsApp: 41 997088269</p>
+      </div>
       <p class="final">Jesus é o suficiente!</p>
     </footer>
   </section>
 
+  <!-- Segunda aba -->
+  <section id="pedido-oracao" class="principal hidden">
+    <div class="conteudo">
+      <h2>Pedido de Oração</h2>
+      <p>Envie seu pedido, vamos orar com fé por você.</p>
+      <form id="form-oracao">
+        <textarea
+          name="pedido"
+          id="pedido"
+          rows="4"
+          placeholder="Coloque seu pedido de oração aqui..."
+          required
+        ></textarea>
+        <button type="submit" class="btn-pequeno">Enviar Pedido</button>
+      </form>
+
+      <h2>📖 Estudos Bíblicos</h2>
+      <ul>
+        <li>Lição 1: O amor incondicional de Jesus</li>
+        <li>Lição 2: A importância da fé diária</li>
+        <li>Lição 3: O poder da oração na vida cristã</li>
+      </ul>
+
+      <div class="botoes-aba">
+        <button id="btn-voltar" class="btn-pequeno">← Voltar</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-info">
+        <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
+        <p>Instagram: @hugozxp7</p>
+        <p>WhatsApp: 41 997088269</p>
+      </div>
+      <p class="final">Jesus é o suficiente!</p>
+    </footer>
+  </section>
+
+  <!-- Player de Música -->
+  <audio id="musica-fundo" src="yeshua-teclado.mp3" loop></audio>
+  <button id="botao-musica" aria-label="Controlar música" class="btn-musica">🔊 Tocar Música</button>
+
   <script>
-    const entrar = document.getElementById("entrar");
-    const aba1 = document.getElementById("aba1");
-    const aba2 = document.getElementById("aba2");
-    const inicio = document.getElementById("inicio");
-    const continuar = document.getElementById("continuar");
-    const voltar = document.getElementById("voltar");
-    const themeToggle = document.getElementById("theme-toggle");
-
-    entrar.onclick = () => {
-      inicio.classList.add("hidden");
-      aba1.classList.remove("hidden");
-    };
-
-    continuar.onclick = () => {
-      aba1.classList.add("hidden");
-      aba2.classList.remove("hidden");
-    };
-
-    voltar.onclick = () => {
-      aba2.classList.add("hidden");
-      aba1.classList.remove("hidden");
-    };
-
-    themeToggle.onclick = () => {
+    // Troca de tema claro/escuro
+    const toggle = document.getElementById("theme-toggle");
+    toggle.onclick = () => {
       document.body.classList.toggle("dark");
+    };
+
+    // Troca entre abas
+    const btnEntrar = document.getElementById("entrar");
+    const inicio = document.getElementById("inicio");
+    const principal = document.getElementById("principal");
+    const pedidoOracao = document.getElementById("pedido-oracao");
+    const btnContinuar = document.getElementById("btn-continuar");
+    const btnVoltar = document.getElementById("btn-voltar");
+
+    btnEntrar.onclick = () => {
+      inicio.classList.add("hidden");
+      principal.classList.remove("hidden");
+      fadeIn(principal);
+    };
+
+    btnContinuar.onclick = () => {
+      principal.classList.add("hidden");
+      pedidoOracao.classList.remove("hidden");
+      fadeIn(pedidoOracao);
+    };
+
+    btnVoltar.onclick = () => {
+      pedidoOracao.classList.add("hidden");
+      principal.classList.remove("hidden");
+      fadeIn(principal);
+    };
+
+    // Função fadeIn suave
+    function fadeIn(element) {
+      element.style.opacity = 0;
+      let opacity = 0;
+      element.style.display = "block";
+      const timer = setInterval(() => {
+        if (opacity >= 1) {
+          clearInterval(timer);
+        }
+        element.style.opacity = opacity;
+        opacity += 0.1;
+      }, 50);
+    }
+
+    // Controle do áudio
+    const audio = document.getElementById("musica-fundo");
+    const btnMusica = document.getElementById("botao-musica");
+
+    btnMusica.onclick = () => {
+      if (audio.paused) {
+        audio.play();
+        btnMusica.textContent = "🔇 Pausar Música";
+      } else {
+        audio.pause();
+        btnMusica.textContent = "🔊 Tocar Música";
+      }
+    };
+
+    // Evento submit do formulário (exemplo: só limpa e alerta)
+    const formOracao = document.getElementById("form-oracao");
+    formOracao.onsubmit = (e) => {
+      e.preventDefault();
+      alert("Pedido de oração enviado com fé! 🙏");
+      formOracao.reset();
     };
   </script>
 </body>
