@@ -4,23 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Por que viver na presença de Jesus</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Música de fundo -->
+  <iframe style="display:none;" src="https://www.youtube.com/embed/8kG-3dHnBkY?autoplay=1&loop=1&playlist=8kG-3dHnBkY"></iframe>
 
-  <!-- Botão de Tema -->
+  <!-- Botão de tema -->
   <button id="theme-toggle">😇</button>
 
-  <!-- Tela Inicial com imagem de fundo -->
+  <!-- Seção Inicial -->
   <section id="inicio" class="inicio">
-    <div class="inicio-content">
-      <h1>Por que viver na presença de Jesus</h1>
-      <button id="entrar">Por que ir para Jesus?</button>
+    <div class="overlay">
+      <button id="entrar" class="botao-central">Por que ir para Jesus?</button>
     </div>
   </section>
 
-  <!-- Seção Principal oculta até clique -->
-  <section id="principal" class="principal hidden">
+  <!-- Primeira Aba -->
+  <section id="aba1" class="aba hidden">
     <div class="conteudo">
       <h2>Como se aproximar de Deus</h2>
       <ul>
@@ -53,21 +54,21 @@
     </div>
   </section>
 
-  <!-- Segunda aba (Pedido de oração + Estudos) -->
-  <section id="extra" class="extra hidden">
+  <!-- Segunda Aba -->
+  <section id="aba2" class="aba hidden">
     <div class="conteudo">
       <h2>Pedido de Oração</h2>
       <form>
-        <label for="pedido">Coloque seu pedido de oração:</label><br>
-        <textarea id="pedido" name="pedido" rows="5" placeholder="Escreva aqui seu pedido..."></textarea>
-        <br><button type="submit">Enviar Pedido</button>
+        <label for="pedido">Coloque seu pedido de oração:</label>
+        <textarea id="pedido" placeholder="Escreva aqui..."></textarea>
+        <button type="submit">Enviar Pedido</button>
       </form>
 
       <h2>📖 Estudos Bíblicos</h2>
       <ul>
-        <li><strong>Lição 1:</strong> Quem é Jesus?</li>
-        <li><strong>Lição 2:</strong> O Plano da Salvação</li>
-        <li><strong>Lição 3:</strong> O Espírito Santo e você</li>
+        <li>1. O Plano da Salvação</li>
+        <li>2. Quem é Jesus Cristo?</li>
+        <li>3. O Fruto do Espírito</li>
       </ul>
 
       <button id="voltar">Voltar</button>
@@ -75,40 +76,33 @@
 
     <footer>
       <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
-      <p>Instagram: @hugozxp7</p>
-      <p>WhatsApp: 41 997088269</p>
+      <p>Instagram: @hugozxp7 | WhatsApp: 41 997088269</p>
       <p class="final">Jesus é o suficiente!</p>
     </footer>
   </section>
 
-  <!-- Música de fundo -->
-  <audio autoplay loop>
-    <source src="yeshua-instrumental.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
-
   <script>
     const entrar = document.getElementById("entrar");
+    const aba1 = document.getElementById("aba1");
+    const aba2 = document.getElementById("aba2");
+    const inicio = document.getElementById("inicio");
     const continuar = document.getElementById("continuar");
     const voltar = document.getElementById("voltar");
-    const inicio = document.getElementById("inicio");
-    const principal = document.getElementById("principal");
-    const extra = document.getElementById("extra");
     const themeToggle = document.getElementById("theme-toggle");
 
     entrar.onclick = () => {
       inicio.classList.add("hidden");
-      principal.classList.remove("hidden");
+      aba1.classList.remove("hidden");
     };
 
     continuar.onclick = () => {
-      principal.classList.add("hidden");
-      extra.classList.remove("hidden");
+      aba1.classList.add("hidden");
+      aba2.classList.remove("hidden");
     };
 
     voltar.onclick = () => {
-      extra.classList.add("hidden");
-      principal.classList.remove("hidden");
+      aba2.classList.add("hidden");
+      aba1.classList.remove("hidden");
     };
 
     themeToggle.onclick = () => {
@@ -117,4 +111,3 @@
   </script>
 </body>
 </html>
-
