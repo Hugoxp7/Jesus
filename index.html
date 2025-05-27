@@ -2,26 +2,24 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Por que viver na presença de Jesus</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Botão de tema -->
   <button id="theme-toggle">😇</button>
 
-  <!-- Aba 1 - Tela Inicial com imagem de fundo -->
-  <section id="inicio" class="aba">
+  <!-- Tela Inicial com imagem de fundo -->
+  <section id="inicio">
     <div class="inicio-content">
       <button id="entrar">Por que ir para Jesus?</button>
     </div>
   </section>
 
-  <!-- Aba 2 - Conteúdo Principal -->
-  <section id="principal" class="aba hidden">
-    <div class="versiculo-container">
-      <span class="versiculo">João 19:30</span>
-    </div>
-
+  <!-- Aba principal -->
+  <section id="principal" class="hidden">
     <div class="conteudo">
       <h2>Como se aproximar de Deus</h2>
       <ul>
@@ -50,47 +48,36 @@
         <li>Preenche o vazio da alma</li>
       </ul>
 
-      <button id="continuar">Continuar ➡️</button>
-    </div>
-
-    <footer>
-      <div class="footer-info">
-        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil" />
-        <div>
-          <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
-          <p>Instagram: @hugozxp7</p>
-          <p>WhatsApp: 41 997088269</p>
-        </div>
+      <div class="btns-voltar-continuar">
+        <button id="voltar1">⬅️ Voltar</button>
+        <button id="continuar1">Continuar ➡️</button>
       </div>
-      <p class="final">Jesus é o suficiente!</p>
-    </footer>
+    </div>
   </section>
 
-  <!-- Aba 3 - Pedido de Oração e Estudos Bíblicos -->
-  <section id="pedido" class="aba hidden">
+  <!-- Aba de Pedido de Oração -->
+  <section id="pedido" class="hidden">
     <div class="pedido-container">
       <h2>Pedido de Oração</h2>
-      <form id="pedido-form">
-        <label for="pedido-text">Coloque seu pedido de oração:</label><br />
-        <textarea id="pedido-text" name="pedido-text" rows="4" required></textarea><br />
-        <button type="submit">Enviar Pedido</button>
-      </form>
+      <p>Envie seu pedido, vamos orar com fé por você.</p>
+      <textarea id="pedido-text" placeholder="Coloque seu pedido de oração aqui..."></textarea>
+      <button type="submit">Enviar Pedido</button>
 
       <h2>📖 Estudos Bíblicos</h2>
       <ul>
-        <li>Lição 1: O Amor de Deus</li>
-        <li>Lição 2: A Fé que Move Montanhas</li>
-        <li>Lição 3: A Vida em Cristo</li>
+        <li>Lição 1: O Plano da Salvação</li>
+        <li>Lição 2: A vida de Jesus</li>
+        <li>Lição 3: O Espírito Santo e Seus Frutos</li>
       </ul>
 
       <div class="btns-voltar-continuar">
-        <button id="voltar">⬅️ Voltar</button>
+        <button id="voltar2">⬅️ Voltar</button>
       </div>
     </div>
 
     <footer>
       <div class="footer-info">
-        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil" />
+        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil"/>
         <div>
           <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
           <p>Instagram: @hugozxp7</p>
@@ -101,50 +88,45 @@
     </footer>
   </section>
 
-  <!-- Fundo musical Yeshua teclado - áudio gratuito -->
-  <audio id="audio-fundo" autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/08/23/audio_30fefcf7e4.mp3?filename=soft-piano-13538.mp3" type="audio/mp3" />
+  <!-- Áudio de fundo (piano instrumental "Yeshua") -->
+  <audio autoplay loop>
+    <source src="https://hugozxp-audios.s3.amazonaws.com/yeshua-piano.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
   </audio>
 
   <script>
-    // Controle das abas
     const btnEntrar = document.getElementById("entrar");
-    const btnContinuar = document.getElementById("continuar");
-    const btnVoltar = document.getElementById("voltar");
-
-    const abaInicio = document.getElementById("inicio");
-    const abaPrincipal = document.getElementById("principal");
-    const abaPedido = document.getElementById("pedido");
-
-    btnEntrar.addEventListener("click", () => {
-      abaInicio.classList.add("hidden");
-      abaPrincipal.classList.remove("hidden");
-    });
-
-    btnContinuar.addEventListener("click", () => {
-      abaPrincipal.classList.add("hidden");
-      abaPedido.classList.remove("hidden");
-    });
-
-    btnVoltar.addEventListener("click", () => {
-      abaPedido.classList.add("hidden");
-      abaPrincipal.classList.remove("hidden");
-    });
-
-    // Trocar tema
+    const inicio = document.getElementById("inicio");
+    const principal = document.getElementById("principal");
+    const pedido = document.getElementById("pedido");
+    const continuar1 = document.getElementById("continuar1");
+    const voltar1 = document.getElementById("voltar1");
+    const voltar2 = document.getElementById("voltar2");
     const toggle = document.getElementById("theme-toggle");
+
+    btnEntrar.onclick = () => {
+      inicio.classList.add("hidden");
+      principal.classList.remove("hidden");
+    };
+
+    continuar1.onclick = () => {
+      principal.classList.add("hidden");
+      pedido.classList.remove("hidden");
+    };
+
+    voltar1.onclick = () => {
+      principal.classList.add("hidden");
+      inicio.classList.remove("hidden");
+    };
+
+    voltar2.onclick = () => {
+      pedido.classList.add("hidden");
+      principal.classList.remove("hidden");
+    };
+
     toggle.onclick = () => {
       document.body.classList.toggle("dark");
     };
-
-    // Formulário pedido de oração (alerta)
-    const formPedido = document.getElementById("pedido-form");
-    formPedido.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("Pedido de oração enviado com fé! 🙏");
-      formPedido.reset();
-    });
   </script>
 </body>
 </html>
