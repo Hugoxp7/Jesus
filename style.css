@@ -126,6 +126,138 @@ p {
 
 /* Pedido de oração */
 form label {
- 
+  font-weight: 600;
+}
 
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 2px solid #800080;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
+  margin: 0.5rem 0 1rem;
+  transition: border-color 0.3s ease;
+}
 
+textarea:focus {
+  border-color: #a64ca6c;
+  outline: none;
+}
+
+.dark textarea {
+  background-color: #222;
+  color: #eee;
+  border-color: #ff69b4;
+}
+
+form button {
+  background-color: #800080cc;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #a64ca6cc;
+}
+
+/* Rodapé */
+footer {
+  max-width: 700px;
+  margin: 2rem auto 1rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding-top: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.dark footer {
+  border-top-color: #444;
+  color: #aaa;
+}
+
+.footer-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.perfil {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #800080;
+}
+
+/* Texto final */
+.final {
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #800080;
+}
+
+.dark .final {
+  color: #ff69b4;
+}
+
+/* Botão tema escuro */
+#theme-toggle {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .aba {
+    margin: 320px 1rem 2rem;
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn-grande {
+    font-size: 1.3rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .btn-pequeno {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image {
+    height: 220px;
+  }
+
+  .aba {
+    margin: 240px 0.5rem 1.5rem;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+}
