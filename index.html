@@ -9,15 +9,15 @@
 <body>
   <button id="theme-toggle">😇</button>
 
-  <!-- Tela Inicial -->
-  <section id="inicio" class="inicio">
+  <!-- Aba 1 - Tela Inicial -->
+  <section id="inicio" class="aba">
     <div class="inicio-content">
       <button id="entrar">Por que ir para Jesus?</button>
     </div>
   </section>
 
-  <!-- Primeira Aba Principal -->
-  <section id="principal" class="principal hidden">
+  <!-- Aba 2 - Conteúdo Principal -->
+  <section id="principal" class="aba hidden">
     <div class="versiculo-container">
       <span class="versiculo">João 19:30</span>
     </div>
@@ -50,10 +50,7 @@
         <li>Preenche o vazio da alma</li>
       </ul>
 
-      <h2>Quem somos</h2>
-      <p>Somos <strong>Filhos de Cristo</strong>, unidos para compartilhar o amor de Deus.</p>
-
-      <button class="btn-navegacao" id="btn-continuar">Continuar ➡️</button>
+      <button id="continuar">Continuar ➡️</button>
     </div>
 
     <footer>
@@ -69,90 +66,85 @@
     </footer>
   </section>
 
-  <!-- Segunda Aba: Pedido de Oração e Estudos Bíblicos -->
-  <section id="segunda" class="segunda hidden">
-    <div class="conteudo">
+  <!-- Aba 3 - Pedido de Oração e Estudos Bíblicos -->
+  <section id="pedido" class="aba hidden">
+    <div class="pedido-container">
       <h2>Pedido de Oração</h2>
-      <p>Envie seu pedido, vamos orar com fé por você.</p>
-
-      <form id="form-oracao">
-        <label for="pedido">Coloque seu pedido de oração:</label><br />
-        <textarea id="pedido" name="pedido" rows="4" required></textarea><br />
+      <form id="pedido-form">
+        <label for="pedido-text">Coloque seu pedido de oração:</label><br />
+        <textarea id="pedido-text" name="pedido-text" rows="4" required></textarea><br />
         <button type="submit">Enviar Pedido</button>
       </form>
 
-      <div class="convite">
-        <p>
-          Não tem uma igreja para congregar?<br />
-          Venha para a <strong>Assembleia de Deus Barreirinha</strong>!<br />
-          Mais informações sobre a igreja? Me chama no WhatsApp.<br />
-          <strong>Ungidos por Deus espera por você!</strong>
-        </p>
-      </div>
-
       <h2>📖 Estudos Bíblicos</h2>
       <ul>
-        <li>Lição 1: O amor de Deus incondicional</li>
-        <li>Lição 2: A importância da oração diária</li>
-        <li>Lição 3: Fortalecendo a fé em tempos difíceis</li>
+        <li>Lição 1: O Amor de Deus</li>
+        <li>Lição 2: A Fé que Move Montanhas</li>
+        <li>Lição 3: A Vida em Cristo</li>
       </ul>
 
-      <div class="botoes-navegacao">
-        <button class="btn-navegacao" id="btn-voltar">⬅️ Voltar</button>
+      <div class="btns-voltar-continuar">
+        <button id="voltar">⬅️ Voltar</button>
       </div>
     </div>
+
+    <footer>
+      <div class="footer-info">
+        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil" />
+        <div>
+          <p>Feito por Jesus - Usado por Ele: Victor Hugo</p>
+          <p>Instagram: @hugozxp7</p>
+          <p>WhatsApp: 41 997088269</p>
+        </div>
+      </div>
+      <p class="final">Jesus é o suficiente!</p>
+    </footer>
   </section>
 
-  <!-- Player invisível do YouTube com música de fundo -->
-  <div style="display:none;">
-    <iframe
-      width="0"
-      height="0"
-      src="https://www.youtube.com/embed/Ol62DLl7LnM?autoplay=1&loop=1&playlist=Ol62DLl7LnM&controls=0&mute=0"
-      frameborder="0"
-      allow="autoplay"
-      allowfullscreen
-    ></iframe>
-  </div>
+  <!-- Fundo musical Yeshua teclado - áudio gratuito -->
+  <audio id="audio-fundo" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/08/23/audio_30fefcf7e4.mp3?filename=soft-piano-13538.mp3" type="audio/mp3" />
+    Seu navegador não suporta áudio.
+  </audio>
 
   <script>
+    // Controle das abas
     const btnEntrar = document.getElementById("entrar");
-    const inicio = document.getElementById("inicio");
-    const principal = document.getElementById("principal");
-    const segunda = document.getElementById("segunda");
+    const btnContinuar = document.getElementById("continuar");
+    const btnVoltar = document.getElementById("voltar");
 
-    const btnContinuar = document.getElementById("btn-continuar");
-    const btnVoltar = document.getElementById("btn-voltar");
+    const abaInicio = document.getElementById("inicio");
+    const abaPrincipal = document.getElementById("principal");
+    const abaPedido = document.getElementById("pedido");
 
+    btnEntrar.addEventListener("click", () => {
+      abaInicio.classList.add("hidden");
+      abaPrincipal.classList.remove("hidden");
+    });
+
+    btnContinuar.addEventListener("click", () => {
+      abaPrincipal.classList.add("hidden");
+      abaPedido.classList.remove("hidden");
+    });
+
+    btnVoltar.addEventListener("click", () => {
+      abaPedido.classList.add("hidden");
+      abaPrincipal.classList.remove("hidden");
+    });
+
+    // Trocar tema
     const toggle = document.getElementById("theme-toggle");
-
-    btnEntrar.onclick = () => {
-      inicio.classList.add("hidden");
-      principal.classList.remove("hidden");
-    };
-
-    btnContinuar.onclick = () => {
-      principal.classList.add("hidden");
-      segunda.classList.remove("hidden");
-    };
-
-    btnVoltar.onclick = () => {
-      segunda.classList.add("hidden");
-      principal.classList.remove("hidden");
-    };
-
     toggle.onclick = () => {
       document.body.classList.toggle("dark");
     };
 
-    // Exemplo simples de envio do formulário (apenas alerta)
-    const formOracao = document.getElementById("form-oracao");
-    formOracao.onsubmit = (e) => {
+    // Formulário pedido de oração (só alerta por enquanto)
+    const formPedido = document.getElementById("pedido-form");
+    formPedido.addEventListener("submit", (e) => {
       e.preventDefault();
       alert("Pedido de oração enviado com fé! 🙏");
-      formOracao.reset();
-    };
+      formPedido.reset();
+    });
   </script>
 </body>
 </html>
-

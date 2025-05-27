@@ -3,155 +3,151 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Tema claro e escuro */
 body {
-  background: #fefefe;
+  background: #f7f7f7;
   color: #222;
-  transition: background-color 0.5s, color 0.5s;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.4s, color 0.4s;
+  padding-bottom: 60px; /* espaço para footer */
 }
 
 body.dark {
   background: #121212;
-  color: #ddd;
+  color: #eee;
 }
 
 /* Botão tema */
 #theme-toggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
+  top: 15px;
+  right: 15px;
+  font-size: 1.8rem;
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 100;
+  z-index: 1000;
+  transition: transform 0.3s;
 }
 
-/* Esconder seções */
+#theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Abas */
+.aba {
+  display: block;
+  padding: 20px;
+  max-width: 900px;
+  margin: 80px auto 0 auto;
+}
+
 .hidden {
-  display: none;
+  display: none !important;
 }
 
-/* Tela inicial */
-.inicio {
-  background: url('https://st.depositphotos.com/52441776/56409/i/450/depositphotos_564093166-stock-photo-silhouette-christian-praying-hands-spiritual.jpg') no-repeat center center/cover;
-  height: 100vh;
+/* Tela Inicial */
+.inicio-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 60vh;
 }
 
-.inicio-content button {
-  font-size: 1.8rem;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  border: none;
-  background-color: #286090;
-  color: white;
+#entrar {
+  font-size: 1.6rem;
+  padding: 15px 30px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  border: none;
+  background-color: #3a8dff;
+  color: white;
+  border-radius: 8px;
   transition: background-color 0.3s;
 }
 
-.inicio-content button:hover {
-  background-color: #1c4e7a;
-}
-
-/* Seções principais */
-.principal,
-.segunda {
-  padding: 1rem 2rem;
-  max-width: 900px;
-  margin: 1rem auto 2rem auto;
-  flex-grow: 1;
+#entrar:hover {
+  background-color: #1e65d3;
 }
 
 /* Versículo */
 .versiculo-container {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   font-style: italic;
+  font-weight: 600;
   font-size: 1.2rem;
-  color: #555;
 }
 
-body.dark .versiculo-container {
-  color: #aaa;
-}
-
-/* Conteúdo */
+/* Conteúdo textos e listas */
 .conteudo h2 {
-  margin: 1.5rem 0 0.5rem 0;
-  border-bottom: 2px solid #286090;
-  padding-bottom: 0.3rem;
-}
-
-body.dark .conteudo h2 {
-  border-color: #4a90e2;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #3a8dff;
+  padding-bottom: 5px;
 }
 
 .conteudo ul {
-  margin-left: 1.2rem;
-  margin-bottom: 1rem;
-  list-style: disc inside;
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
 }
 
-.conteudo p {
-  margin-bottom: 1rem;
+.conteudo li {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+button#continuar {
+  margin-top: 20px;
+  padding: 10px 25px;
   font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Convite */
-.convite {
-  background-color: #e0f0ff;
-  padding: 1rem;
+  border: none;
   border-radius: 8px;
-  margin: 1.5rem 0;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#continuar:hover {
+  background-color: #1e7e34;
+}
+
+/* Pedido de Oração */
+.pedido-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.pedido-container h2 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #3a8dff;
+  padding-bottom: 5px;
+}
+
+#pedido-form label {
   font-weight: 600;
-  color: #08306b;
 }
 
-body.dark .convite {
-  background-color: #224466;
-  color: #cde4ff;
-}
-
-/* Formulário */
-form {
-  margin: 1rem 0 2rem 0;
-}
-
-label {
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-textarea {
+#pedido-text {
   width: 100%;
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 10px;
+  margin: 10px 0 15px 0;
+  resize: vertical;
   border-radius: 6px;
   border: 1px solid #ccc;
-  resize: vertical;
+  font-size: 1rem;
 }
 
-textarea:focus {
-  outline: none;
-  border-color: #286090;
-  box-shadow: 0 0 5px #4a90e2;
-}
-
-button[type="submit"] {
-  background-color: #286090;
+#pedido-form button[type="submit"] {
+  background-color: #3a8dff;
   color: white;
-  padding: 0.6rem 1.2rem;
+  padding: 10px 20px;
   font-size: 1rem;
   border: none;
   border-radius: 8px;
@@ -159,79 +155,87 @@ button[type="submit"] {
   transition: background-color 0.3s;
 }
 
-button[type="submit"]:hover {
-  background-color: #1c4e7a;
+#pedido-form button[type="submit"]:hover {
+  background-color: #275bb5;
 }
 
-/* Botões de navegação entre abas */
-.btn-navegacao {
-  background-color: #286090;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
+/* Botões voltar e continuar na aba pedido */
+.btns-voltar-continuar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btns-voltar-continuar button {
+  padding: 8px 18px;
   font-size: 1rem;
-  margin-top: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff7043;
+  color: white;
+  cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.btn-navegacao:hover {
-  background-color: #1c4e7a;
-}
-
-.botoes-navegacao {
-  margin-top: 1.5rem;
+.btns-voltar-continuar button:hover {
+  background-color: #d3521e;
 }
 
 /* Footer */
 footer {
-  border-top: 1px solid #ccc;
-  padding: 1rem 2rem;
-  max-width: 900px;
-  margin: 0 auto 2rem auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #3a8dff;
+  color: white;
+  padding: 10px 20px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: #555;
   font-size: 0.9rem;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.4s;
 }
 
 body.dark footer {
-  border-color: #444;
-  color: #aaa;
+  background-color: #1a2a6c;
 }
 
 .footer-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 15px;
+  margin-bottom: 5px;
 }
 
-.perfil {
-  width: 48px;
-  height: 48px;
+footer .perfil {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-/* Texto final */
 .final {
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-style: italic;
 }
 
 /* Responsividade */
 @media (max-width: 600px) {
-  .conteudo {
-    padding: 0 1rem;
+  .aba {
+    margin: 80px 10px 0 10px;
+    padding: 10px;
   }
 
-  .inicio-content button,
-  .btn-navegacao,
-  button[type="submit"] {
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
+  #entrar, button#continuar, #pedido-form button[type="submit"], .btns-voltar-continuar button {
+    width: 100%;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
   }
 }
