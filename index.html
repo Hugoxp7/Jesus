@@ -4,93 +4,96 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Por que viver na presença de Jesus</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
-<body class="light">
+<body>
 
-  <section class="home" id="inicio">
-    <img src="https://st.depositphotos.com/52441776/56409/i/450/depositphotos_564093166-stock-photo-silhouette-christian-praying-hands-spiritual.jpg" alt="Inicio" class="background" />
-    <button class="main-button" onclick="mostrarConteudo()">Por que ir para Jesus?</button>
+  <!-- Botão tema -->
+  <button id="theme-toggle" class="theme-toggle">😇</button>
+
+  <!-- Página inicial -->
+  <section id="inicio" class="section inicio">
+    <div class="content">
+      <button id="entrar" class="entrar-btn">Por que ir para Jesus?</button>
+    </div>
   </section>
 
-  <section class="conteudo" id="conteudo" style="display: none;">
-    <img src="https://img.elo7.com.br/product/main/487EE8B/letras-luminosas-jesus-a-pilhas-luminaria.jpg" alt="Jesus Luz" class="background" />
-    
-    <div class="versiculo"><h2>João 19:30</h2></div>
+  <!-- Página principal -->
+  <section id="principal" class="section principal hidden">
+    <div class="overlay">
+      <h2 class="versiculo">João 19:30</h2>
+    </div>
 
-    <div class="secao">
-      <h2>Como se aproximar de Deus</h2>
+    <div class="mensagem">
+      <h3>Como se aproximar de Deus</h3>
       <ul>
-        <li>Ore diariamente com sinceridade.</li>
-        <li>Leia a Bíblia e reflita sobre a Palavra.</li>
-        <li>Busque uma comunidade cristã.</li>
-        <li>Tenha fé nos momentos difíceis.</li>
-        <li>Pratique o amor ao próximo.</li>
+        <li>Ore diariamente com sinceridade</li>
+        <li>Leia a Bíblia com fé e atenção</li>
+        <li>Participe de uma comunidade cristã</li>
+        <li>Peça a direção do Espírito Santo</li>
+        <li>Confie em Deus acima de tudo</li>
       </ul>
-    </div>
 
-    <div class="secao">
-      <h2>Versículos & Mensagens</h2>
+      <h3>Versículos & Mensagens</h3>
       <ul>
-        <li>"O Senhor é o meu pastor, nada me faltará." - Salmos 23:1</li>
-        <li>"Entrega o teu caminho ao Senhor..." - Salmos 37:5</li>
-        <li>"Tudo posso naquele que me fortalece." - Filipenses 4:13</li>
-        <li>"Porque Deus amou o mundo..." - João 3:16</li>
-        <li>"Não temas, pois eu sou contigo." - Isaías 41:10</li>
+        <li>Salmos 23: "O Senhor é o meu pastor..."</li>
+        <li>João 14:6: "Eu sou o caminho..."</li>
+        <li>Isaías 41:10: "Não temas..."</li>
+        <li>Romanos 8:28: "Tudo coopera..."</li>
+        <li>Filipenses 4:13: "Tudo posso..."</li>
       </ul>
-    </div>
 
-    <div class="secao">
-      <h2>Por que viver na presença de Jesus?</h2>
+      <h3>Por que viver na presença de Jesus?</h3>
       <ul>
-        <li>Encontra paz verdadeira.</li>
-        <li>Sente-se amado incondicionalmente.</li>
-        <li>Tem direção e propósito.</li>
-        <li>Recebe perdão e misericórdia.</li>
-        <li>Vive com esperança eterna.</li>
+        <li>Ele dá sentido à vida</li>
+        <li>Nos oferece salvação</li>
+        <li>Transforma o coração</li>
+        <li>Nos guia pelo caminho certo</li>
+        <li>Preenche com paz e amor</li>
       </ul>
-    </div>
 
-    <div class="secao">
-      <h2>Quem somos</h2>
-      <p><strong>Filhos de Cristo</strong> — pessoas comuns com um propósito eterno: espalhar o amor de Jesus!</p>
-    </div>
+      <h3>Quem somos</h3>
+      <p>Filhos de Cristo, unidos para compartilhar o amor de Jesus.</p>
 
-    <div class="secao">
-      <h2>Pedido de oração</h2>
-      <p>Sinta-se à vontade para nos procurar se precisa de oração. Estamos aqui para ouvir e interceder por você!</p>
-    </div>
+      <h3>Pedido de oração</h3>
+      <p>Envie seu pedido e oraremos por você com fé e carinho.</p>
 
-    <div class="convite">
-      <p>Não tem uma igreja para congregar?</p>
-      <p>Venha para a <strong>Assembleia de Deus Barreirinha</strong>.</p>
-      <p>Mais informações sobre a igreja? Me chama no WhatsApp!</p>
-      <p><strong>Ungidos Por Deus</strong> espera por você!</p>
+      <h3 class="convite">
+        Não tem uma igreja para congregar? <br />
+        Venha para a Assembleia de Deus Barreirinha! <br />
+        Mais informações sobre a igreja? Me chama no WhatsApp. <br />
+        <strong>Ungidos por Deus espera por você!</strong>
+      </h3>
     </div>
 
     <footer>
       <p>Feito por Jesus - Usado por Ele para criar o site foi Victor Hugo</p>
       <div class="contato">
-        <p>Insta: @hugozxp7 | WhatsApp: 41 997088269</p>
-        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="WhatsApp" class="foto-contato"/>
+        <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Imagem de perfil" class="perfil"/>
+        <div>
+          <p>Instagram: @hugozxp7</p>
+          <p>WhatsApp: 41 997088269</p>
+        </div>
       </div>
-      <h3>Jesus é o suficiente!</h3>
+      <p class="final">Jesus é o suficiente!</p>
     </footer>
   </section>
 
-  <button class="tema-toggle" onclick="alternarTema()">😇</button>
+<script>
+  const btn = document.getElementById("entrar");
+  const inicio = document.getElementById("inicio");
+  const principal = document.getElementById("principal");
+  const toggle = document.getElementById("theme-toggle");
 
-  <script>
-    function mostrarConteudo() {
-      document.getElementById("inicio").style.display = "none";
-      document.getElementById("conteudo").style.display = "block";
-      window.scrollTo(0, 0);
-    }
+  btn.onclick = () => {
+    inicio.classList.add("hidden");
+    principal.classList.remove("hidden");
+  };
 
-    function alternarTema() {
-      document.body.classList.toggle("dark");
-      document.body.classList.toggle("light");
-    }
-  </script>
+  toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+  };
+</script>
+
 </body>
 </html>
