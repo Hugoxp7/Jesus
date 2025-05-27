@@ -9,7 +9,7 @@
 <body>
   <button id="theme-toggle">😇</button>
 
-  <!-- Aba 1 - Tela Inicial -->
+  <!-- Aba 1 - Tela Inicial com imagem de fundo -->
   <section id="inicio" class="aba">
     <div class="inicio-content">
       <button id="entrar">Por que ir para Jesus?</button>
@@ -138,7 +138,7 @@
       document.body.classList.toggle("dark");
     };
 
-    // Formulário pedido de oração (só alerta por enquanto)
+    // Formulário pedido de oração (alerta)
     const formPedido = document.getElementById("pedido-form");
     formPedido.addEventListener("submit", (e) => {
       e.preventDefault();
