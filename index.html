@@ -7,19 +7,16 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <button id="theme-toggle">😇</button>
+  <button id="theme-toggle" aria-label="Alternar tema">😇</button>
 
-  <!-- Aba 1: Início + Conteúdo Principal -->
+  <!-- Imagem de fundo fixa no topo -->
+  <div class="hero-image"></div>
+
+  <!-- Aba 1 -->
   <section id="aba1" class="aba">
-    <div class="inicio-content">
-      <button id="entrar">Por que ir para Jesus?</button>
-    </div>
+    <button id="entrar" class="btn-grande">Por que ir para Jesus?</button>
 
     <div class="conteudo-principal hidden">
-      <div class="versiculo-container">
-        <span class="versiculo">João 19:30</span>
-      </div>
-
       <h2>Como se aproximar de Deus</h2>
       <ul>
         <li>Ore diariamente com o coração sincero</li>
@@ -47,11 +44,13 @@
         <li>Preenche o vazio da alma</li>
       </ul>
 
-      <button id="btn-aba2" class="btn-continuar">Continuar</button>
+      <div class="btn-container">
+        <button id="btn-aba2" class="btn-pequeno">Continuar ➡️</button>
+      </div>
     </div>
   </section>
 
-  <!-- Aba 2: Pedido de Oração -->
+  <!-- Aba 2 -->
   <section id="aba2" class="aba hidden">
     <h2>Pedido de Oração</h2>
     <p>Envie seu pedido, vamos orar com fé por você.</p>
@@ -71,10 +70,13 @@
       </p>
     </div>
 
-    <button id="btn-aba3" class="btn-continuar">Próxima: Estudos Bíblicos 📖</button>
+    <div class="btn-container">
+      <button id="btn-voltar2" class="btn-pequeno">⬅️ Voltar</button>
+      <button id="btn-aba3" class="btn-pequeno">Continuar ➡️</button>
+    </div>
   </section>
 
-  <!-- Aba 3: Estudos Bíblicos -->
+  <!-- Aba 3 -->
   <section id="aba3" class="aba hidden">
     <h2>📖 Estudos Bíblicos</h2>
     <ul>
@@ -82,9 +84,13 @@
       <li>Lição 2: A importância da oração na vida cristã</li>
       <li>Lição 3: Como aplicar a palavra de Deus no dia a dia</li>
     </ul>
+
+    <div class="btn-container">
+      <button id="btn-voltar3" class="btn-pequeno">⬅️ Voltar</button>
+    </div>
   </section>
 
-  <!-- Rodapé comum -->
+  <!-- Rodapé -->
   <footer>
     <div class="footer-info">
       <img src="7f0114de-fddb-4cda-acc3-33cf6489a17b.jpeg" alt="Perfil" class="perfil" />
@@ -103,23 +109,40 @@
     const aba1 = document.getElementById("aba1");
     const aba2 = document.getElementById("aba2");
     const aba3 = document.getElementById("aba3");
-    const btnAba2 = document.getElementById("btn-aba2");
-    const btnAba3 = document.getElementById("btn-aba3");
 
-    // Mostrar conteúdo principal da aba1 depois do "entrar"
+    const btnAba2 = document.getElementById("btn-aba2");
+    const btnVoltar2 = document.getElementById("btn-voltar2");
+    const btnAba3 = document.getElementById("btn-aba3");
+    const btnVoltar3 = document.getElementById("btn-voltar3");
+
     entrarBtn.onclick = () => {
       entrarBtn.style.display = "none";
       document.querySelector(".conteudo-principal").classList.remove("hidden");
+      window.scrollTo({top:0, behavior:"smooth"});
     };
 
     btnAba2.onclick = () => {
       aba1.classList.add("hidden");
       aba2.classList.remove("hidden");
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+
+    btnVoltar2.onclick = () => {
+      aba2.classList.add("hidden");
+      aba1.classList.remove("hidden");
+      window.scrollTo({top:0, behavior:"smooth"});
     };
 
     btnAba3.onclick = () => {
       aba2.classList.add("hidden");
       aba3.classList.remove("hidden");
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+
+    btnVoltar3.onclick = () => {
+      aba3.classList.add("hidden");
+      aba2.classList.remove("hidden");
+      window.scrollTo({top:0, behavior:"smooth"});
     };
 
     // Tema escuro
@@ -128,7 +151,7 @@
       document.body.classList.toggle("dark");
     };
 
-    // Formulário: só limpa e alerta para simular envio
+    // Formulário: alerta e limpar
     const formOracao = document.getElementById("form-oracao");
     formOracao.onsubmit = (e) => {
       e.preventDefault();
@@ -136,7 +159,7 @@
       formOracao.reset();
     };
 
-    // Música de fundo embutida
+    // Música de fundo (opcional)
     const audio = document.createElement("audio");
     audio.src = "https://cdn.pixabay.com/download/audio/2023/03/06/audio_3eaf2e2e99.mp3?filename=soft-inspirational-piano-10892.mp3";
     audio.loop = true;
@@ -146,3 +169,4 @@
   </script>
 </body>
 </html>
+
