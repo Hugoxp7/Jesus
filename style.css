@@ -3,261 +3,235 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Tema claro e escuro */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff;
+  background: #fefefe;
   color: #222;
+  transition: background-color 0.5s, color 0.5s;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 0 1rem 2rem;
-  transition: background-color 0.5s, color 0.5s;
 }
 
-.dark {
-  background-color: #121212;
-  color: #eee;
+body.dark {
+  background: #121212;
+  color: #ddd;
 }
 
-/* Imagem fixa no topo */
-.hero-image {
-  width: 100%;
-  height: 300px;
-  background: url("https://st.depositphotos.com/52441776/56409/i/450/depositphotos_564093166-stock-photo-silhouette-christian-praying-hands-spiritual.jpg") no-repeat center center;
-  background-size: cover;
+/* Botão tema */
+#theme-toggle {
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
 }
 
-/* Ajusta para não esconder conteúdo */
-.aba {
-  max-width: 700px;
-  margin: 320px auto 2rem; /* empurra conteúdo para baixo da imagem fixa */
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-  transition: opacity 0.5s ease;
-}
-
-.dark .aba {
-  background: rgba(20, 20, 20, 0.95);
-  box-shadow: 0 0 15px rgba(255, 0, 200, 0.5);
-}
-
+/* Esconder seções */
 .hidden {
   display: none;
 }
 
-/* Botões */
-.btn-grande {
-  display: block;
-  margin: 0 auto 2rem;
-  font-size: 1.5rem;
+/* Tela inicial */
+.inicio {
+  background: url('https://st.depositphotos.com/52441776/56409/i/450/depositphotos_564093166-stock-photo-silhouette-christian-praying-hands-spiritual.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inicio-content button {
+  font-size: 1.8rem;
   padding: 1rem 2rem;
   border-radius: 12px;
   border: none;
-  background-color: #800080cc;
+  background-color: #286090;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
 }
 
-.btn-grande:hover {
-  background-color: #a64ca6cc;
+.inicio-content button:hover {
+  background-color: #1c4e7a;
 }
 
-.btn-pequeno {
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  border: none;
-  background-color: #800080cc;
-  color: white;
-  cursor: pointer;
-  margin: 0 0.3rem;
-  transition: background-color 0.3s ease;
+/* Seções principais */
+.principal,
+.segunda {
+  padding: 1rem 2rem;
+  max-width: 900px;
+  margin: 1rem auto 2rem auto;
+  flex-grow: 1;
 }
 
-.btn-pequeno:hover {
-  background-color: #a64ca6cc;
-}
-
-.btn-container {
-  margin-top: 2rem;
+/* Versículo */
+.versiculo-container {
   text-align: center;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #555;
 }
 
-/* Conteúdo e textos */
-h2 {
-  margin: 1.5rem 0 1rem;
-  color: #800080;
+body.dark .versiculo-container {
+  color: #aaa;
 }
 
-.dark h2 {
-  color: #ff69b4;
+/* Conteúdo */
+.conteudo h2 {
+  margin: 1.5rem 0 0.5rem 0;
+  border-bottom: 2px solid #286090;
+  padding-bottom: 0.3rem;
 }
 
-ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-  list-style-type: disc;
-  color: #333;
+body.dark .conteudo h2 {
+  border-color: #4a90e2;
 }
 
-.dark ul {
-  color: #ddd;
+.conteudo ul {
+  margin-left: 1.2rem;
+  margin-bottom: 1rem;
+  list-style: disc inside;
 }
 
-p {
-  margin: 1rem 0;
+.conteudo p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
   line-height: 1.5;
-  color: #444;
 }
 
-.dark p {
-  color: #ccc;
-}
-
-/* Pedido de oração */
-form label {
+/* Convite */
+.convite {
+  background-color: #e0f0ff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
   font-weight: 600;
+  color: #08306b;
+}
+
+body.dark .convite {
+  background-color: #224466;
+  color: #cde4ff;
+}
+
+/* Formulário */
+form {
+  margin: 1rem 0 2rem 0;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 textarea {
   width: 100%;
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 2px solid #800080;
-  resize: vertical;
-  font-family: inherit;
+  padding: 0.5rem;
   font-size: 1rem;
-  margin: 0.5rem 0 1rem;
-  transition: border-color 0.3s ease;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
 }
 
 textarea:focus {
-  border-color: #a64ca6c;
   outline: none;
+  border-color: #286090;
+  box-shadow: 0 0 5px #4a90e2;
 }
 
-.dark textarea {
-  background-color: #222;
-  color: #eee;
-  border-color: #ff69b4;
+button[type="submit"] {
+  background-color: #286090;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-form button {
-  background-color: #800080cc;
+button[type="submit"]:hover {
+  background-color: #1c4e7a;
+}
+
+/* Botões de navegação entre abas */
+.btn-navegacao {
+  background-color: #286090;
   color: white;
   border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s;
 }
 
-form button:hover {
-  background-color: #a64ca6cc;
+.btn-navegacao:hover {
+  background-color: #1c4e7a;
 }
 
-/* Rodapé */
+.botoes-navegacao {
+  margin-top: 1.5rem;
+}
+
+/* Footer */
 footer {
-  max-width: 700px;
-  margin: 2rem auto 1rem;
-  text-align: center;
   border-top: 1px solid #ccc;
-  padding-top: 1rem;
-  color: #666;
+  padding: 1rem 2rem;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
   font-size: 0.9rem;
-  user-select: none;
 }
 
-.dark footer {
-  border-top-color: #444;
+body.dark footer {
+  border-color: #444;
   color: #aaa;
 }
 
 .footer-info {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .perfil {
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #800080;
 }
 
 /* Texto final */
 .final {
-  font-weight: bold;
-  margin-top: 1rem;
-  font-size: 1.2rem;
-  color: #800080;
-}
-
-.dark .final {
-  color: #ff69b4;
-}
-
-/* Botão tema escuro */
-#theme-toggle {
-  position: fixed;
-  right: 1rem;
-  top: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 10;
-  user-select: none;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-  .aba {
-    margin: 320px 1rem 2rem;
-    padding: 1.5rem;
+@media (max-width: 600px) {
+  .conteudo {
+    padding: 0 1rem;
   }
 
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  .btn-grande {
-    font-size: 1.3rem;
-    padding: 0.75rem 1.5rem;
-  }
-
-  .btn-pequeno {
-    font-size: 0.9rem;
-    padding: 0.4rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-image {
-    height: 220px;
-  }
-
-  .aba {
-    margin: 240px 0.5rem 1.5rem;
-    padding: 1rem;
-  }
-
-  h2 {
+  .inicio-content button,
+  .btn-navegacao,
+  button[type="submit"] {
     font-size: 1.2rem;
+    padding: 0.5rem 1rem;
   }
 }
